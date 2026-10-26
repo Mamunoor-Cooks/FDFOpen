@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>চতুর্দশ জাতীয় বিতর্ক উৎসব ২০২৬</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&family=Noto+Serif+Bengali:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green-deep:#0c4f2e;
+  --green:#1b8a4b;
+  --green-soft:#e6f3ea;
+  --yellow:#f2b705;
+  --yellow-soft:#fff3c4;
+  --white:#ffffff;
+  --ink:#16301f;
+  --serif:"Noto Serif Bengali","Kalpurush",Georgia,serif;
+  --sans:"Hind Siliguri","Kalpurush","Noto Sans Bengali",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:var(--sans);font-size:1.05rem;line-height:1.75;color:var(--ink);
+  background:var(--white);
+}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+
+/* ---------- হেডার: আলপনা নকশা + ঝালর ---------- */
+.masthead{
+  position:relative;background:var(--green-deep);color:var(--white);
+  text-align:center;padding:2.6rem 1.25rem 2.4rem;
+}
+.masthead::before{
+  content:"";position:absolute;inset:0;opacity:.28;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%23f2b705' stroke-width='1.3'%3E%3Cpath d='M28 4l10 24-10 24-10-24z'/%3E%3Ccircle cx='28' cy='28' r='4'/%3E%3Cpath d='M0 28h12M44 28h12M28 0v4M28 52v4'/%3E%3C/g%3E%3C/svg%3E");
+}
+.masthead > *{position:relative}
+.masthead::after{ /* ঝালর */
+  content:"";position:absolute;left:0;right:0;top:100%;height:16px;
+  background:radial-gradient(circle at 14px 0,var(--green-deep) 13px,transparent 14px) 0 0/28px 16px repeat-x;
+}
+.presented{margin:0 0 .35rem;color:var(--yellow);font-weight:500;letter-spacing:.02em}
+.masthead h1{
+  margin:0;font-family:var(--serif);font-weight:800;line-height:1.3;
+  font-size:clamp(1.9rem,6vw,3.4rem);
+}
+.masthead .sub{
+  margin:.7rem 0 0;color:var(--white);font-size:clamp(.95rem,2.4vw,1.15rem);
+  font-weight:400;opacity:.92;letter-spacing:.01em;
+}
+.masthead .tag{
+  display:inline-block;margin-top:1.1rem;padding:.2rem 1.1rem;
+  border:2px dashed var(--yellow);border-radius:999px;color:var(--yellow-soft);font-weight:500;
+}
+
+main{max-width:980px;margin:0 auto;padding:3.2rem 1.25rem 2rem}
+
+/* ---------- ব্যানার: কাঁথার ফোঁড় ফ্রেম ---------- */
+.frame{
+  background:var(--white);padding:.9rem;border:3px dashed var(--green);border-radius:6px;
+  box-shadow:10px 10px 0 var(--yellow);
+}
+.frame img{display:block;width:100%;height:auto;border-radius:3px}
+
+/* ---------- উৎসবের দিনপঞ্জি (মূল আকর্ষণ) ---------- */
+.tracker{margin:4rem 0 3rem;text-align:center}
+.tracker h2,.section-title{
+  font-family:var(--serif);font-weight:800;color:var(--green-deep);
+  font-size:clamp(1.4rem,3.6vw,1.9rem);margin:0 0 .4rem;
+}
+.status{margin:0 0 1rem;font-weight:600;color:var(--green)}
+.clock{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem;margin:0 0 2.2rem}
+.clock[hidden]{display:none}
+.unit{
+  position:relative;min-width:5.2rem;padding:.8rem .6rem .6rem;
+  background:var(--green-deep);color:var(--white);border-radius:12px;
+}
+.unit::after{ /* কাঁথার ফোঁড় */
+  content:"";position:absolute;inset:5px;border:1.5px dashed var(--yellow);
+  border-radius:8px;pointer-events:none;opacity:.8;
+}
+.unit b{
+  display:block;font-family:var(--serif);font-weight:800;line-height:1.2;
+  font-size:clamp(1.8rem,6vw,2.6rem);color:var(--yellow);
+}
+.unit span{font-size:.9rem}
+.clock.live .unit{background:var(--green)}
+.days{
+  list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem;
+}
+.day{
+  width:4.1rem;padding:.55rem 0 .5rem;border:2px solid var(--green);border-radius:999px 999px 10px 10px;
+  background:var(--white);color:var(--green-deep);line-height:1.2;
+  transition:background .4s,color .4s,transform .4s,border-color .4s;
+}
+.day b{display:block;font-family:var(--serif);font-size:1.35rem}
+.day small{font-size:.8rem}
+.day.done{background:var(--green);color:var(--white)}
+.day.today{
+  background:var(--yellow);border-color:var(--green-deep);color:var(--green-deep);
+  transform:translateY(-8px);box-shadow:0 6px 0 var(--green-deep);
+}
+.day.today small::after{content:" • আজ"}
+
+/* ---------- তথ্য ---------- */
+.info{
+  display:grid;grid-template-columns:minmax(200px,260px) 1fr;
+  border:3px solid var(--green-deep);border-radius:8px;overflow:hidden;
+}
+.when{
+  background:var(--yellow);color:var(--green-deep);padding:2rem 1.2rem;text-align:center;
+  display:flex;flex-direction:column;justify-content:center;
+  border-right:3px dashed var(--green-deep);
+}
+.when .big{font-family:var(--serif);font-weight:800;font-size:2.6rem;line-height:1.2}
+.when .month{font-weight:600;font-size:1.15rem}
+.what{padding:1.8rem 2rem;background:var(--white)}
+.what h3{margin:0 0 .2rem;font-family:var(--serif);color:var(--green-deep);font-size:1.25rem}
+.what p{margin:0 0 1.2rem}
+.what ul{list-style:none;margin:0;padding:0}
+.what li{position:relative;padding-left:1.7rem;margin:.35rem 0}
+.what li::before{
+  content:"";position:absolute;left:.25rem;top:.7em;width:.7rem;height:.7rem;
+  background:var(--yellow);border:2px solid var(--green);transform:rotate(45deg);
+}
+
+/* ---------- লিংক ---------- */
+.links{margin:3.4rem 0 1rem;text-align:center}
+.links ul{list-style:none;margin:1.2rem 0 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:.8rem}
+.links a{
+  display:inline-block;padding:.55rem 1.6rem;text-decoration:none;font-weight:600;
+  color:var(--white);background:var(--green);border-radius:999px;border:2px solid var(--green-deep);
+  transition:background .2s,color .2s;
+}
+.links a:hover{background:var(--yellow);color:var(--green-deep)}
+
+footer{
+  margin-top:3rem;padding:1.4rem 1.25rem 1.8rem;text-align:center;
+  background:var(--green-soft);border-top:4px double var(--green);color:var(--green-deep);
+}
+footer strong{font-family:var(--serif)}
+
+@media (max-width:680px){
+  .info{grid-template-columns:1fr}
+  .when{border-right:0;border-bottom:3px dashed var(--green-deep)}
+  .what{padding:1.4rem 1.2rem}
+  .frame{box-shadow:6px 6px 0 var(--yellow)}
+  .day{width:3.6rem}
+  .unit{min-width:4.2rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .day{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <p class="presented">করিম গ্রুপ নিবেদিত</p>
+  <h1>চতুর্দশ জাতীয় বিতর্ক উৎসব ২০২৬</h1>
+  <p class="sub">মহা কোলাহলে আরম্ভ হলো দিনের মহোৎসব</p>
+  <span class="tag">ফরিদপুর ডিবেট ফোরাম</span>
+</header>
+
+<main>
+  <div class="frame">
+    <img src="https://i.postimg.cc/pXBdwZD2/fdf.jpg" alt="চতুর্দশ জাতীয় বিতর্ক উৎসবের ব্যানার">
+  </div>
+
+  <section class="tracker" aria-labelledby="tr-title">
+    <h2 id="tr-title">উৎসবের দিনপঞ্জি</h2>
+    <p class="status" id="status" aria-live="polite"></p>
+    <div class="clock" id="clock" role="timer" aria-label="উৎসবের কাউন্টডাউন">
+      <div class="unit"><b id="cd-d">০০</b><span>দিন</span></div>
+      <div class="unit"><b id="cd-h">০০</b><span>ঘণ্টা</span></div>
+      <div class="unit"><b id="cd-m">০০</b><span>মিনিট</span></div>
+      <div class="unit"><b id="cd-s">০০</b><span>সেকেন্ড</span></div>
+    </div>
+    <ol class="days" id="days"></ol>
+  </section>
+
+  <section class="info" aria-label="উৎসবের তথ্য">
+    <div class="when">
+      <span class="big">২৯–৩০</span>
+      <span class="month">অক্টোবর ২০২৬</span>
+    </div>
+    <div class="what">
+      <h3>কবি জসীম উদদীন হল, ফরিদপুর</h3>
+      <p>দুই দিনের এই আয়োজনে থাকছে:</p>
+      <ul>
+        <li>স্কুল, কলেজ ও বিশ্ববিদ্যালয় পর্যায়ে বিতর্ক প্রতিযোগিতা</li>
+        <li>প্রদর্শনী বিতর্ক</li>
+        <li>প্রকাশনা উৎসব</li>
+        <li>সাংস্কৃতিক অনুষ্ঠান</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="links" aria-labelledby="ln-title">
+    <h2 class="section-title" id="ln-title">দ্রুত দেখুন</h2>
+    <ul>
+      <!-- লিংকগুলো আপনার টুর্নামেন্টের ঠিকানা অনুযায়ী মিলিয়ে নিন -->
+      <li><a href="https://fdf.calicotab.com/FDF-14th-National-Debate_Fest/motions/">মোশন</a></li>
+      <li><a href="https://fdf.calicotab.com/FDF-14th-National-Debate_Fest/draw/">ড্র</a></li>
+      <li><a href="https://fdf.calicotab.com/FDF-14th-National-Debate_Fest/results/">ফলাফল</a></li>
+      <li><a href="https://fdf.calicotab.com/FDF-14th-National-Debate_Fest/tab/team/">টিম স্ট্যান্ডিং</a></li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <strong>ফরিদপুর ডিবেট ফোরাম</strong><br>
+  সংগ্রাম করি সবুজ স্পর্ধায়
+</footer>
+
+<script>
+(function () {
+  // ===== সময় বদলাতে শুধু এই দুই লাইন বদলান (ঢাকার সময়, +06:00) =====
+  var STARTS = new Date("2026-10-29T09:00:00+06:00");   // উৎসব শুরু
+  var ENDS   = new Date("2026-10-30T21:00:00+06:00");   // উৎসব শেষ
+  // ==================================================================
+
+  var FIRST_DAY = 29, TOTAL = 2;   // দিনপঞ্জির ঘর: ২৯ ও ৩০ অক্টোবর
+  var digits = "০১২৩৪৫৬৭৮৯";
+  function bn(n) { return String(n).replace(/\d/g, function (d) { return digits[d]; }); }
+  function two(n) { return bn(n < 10 ? "0" + n : n); }
+
+  var status = document.getElementById("status");
+  var clock = document.getElementById("clock");
+  var cd = {
+    d: document.getElementById("cd-d"), h: document.getElementById("cd-h"),
+    m: document.getElementById("cd-m"), s: document.getElementById("cd-s")
+  };
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // দিনপঞ্জির ঘর
+  var list = document.getElementById("days");
+  var items = [];
+  for (var i = 0; i < TOTAL; i++) {
+    var li = document.createElement("li");
+    li.className = "day";
+    li.innerHTML = "<b>" + bn(FIRST_DAY + i) + "</b><small>অক্টো</small>";
+    list.appendChild(li);
+    items.push(li);
+  }
+
+  // ঢাকার আজকের তারিখ অনুযায়ী: ০ = শুরুর আগে, ১..TOTAL = চলছে, TOTAL+1 = শেষ
+  function dayInfo() {
+    var p = new Intl.DateTimeFormat("en-CA", {
+      timeZone: "Asia/Dhaka", year: "numeric", month: "2-digit", day: "2-digit"
+    }).format(new Date()).split("-").map(Number);
+    var t = Date.UTC(p[0], p[1] - 1, p[2]);
+    var f = Date.UTC(2026, 9, FIRST_DAY);
+    var n = Math.floor((t - f) / 86400000) + 1;
+    return n < 1 ? 0 : (n > TOTAL ? TOTAL + 1 : n);
+  }
+
+  var shown = -1;
+  function updateDots(first) {
+    var n = dayInfo();
+    if (n === shown) return;
+    shown = n;
+    items.forEach(function (el, idx) {
+      function go() {
+        el.classList.toggle("done", idx + 1 < n);
+        el.classList.toggle("today", idx + 1 === n && n <= TOTAL);
+      }
+      if (first && !reduce) setTimeout(go, 250 + idx * 110); else go();
+    });
+  }
+
+  // প্রতি সেকেন্ডে চলা ঘড়ি
+  function tick() {
+    var now = Date.now(), target, state;
+    if (now < STARTS.getTime()) { target = STARTS.getTime(); state = "before"; }
+    else if (now < ENDS.getTime()) { target = ENDS.getTime(); state = "live"; }
+    else { state = "after"; }
+
+    if (state === "after") {
+      clock.hidden = true;
+      status.textContent = "উৎসব শেষ হয়েছে। সবাইকে ধন্যবাদ।";
+    } else {
+      clock.hidden = false;
+      clock.className = "clock " + state;
+      var text = state === "before" ? "উৎসব শুরু হতে বাকি" : "উৎসব চলছে, শেষ হতে বাকি";
+      if (status.textContent !== text) status.textContent = text;
+      var s = Math.max(0, Math.floor((target - now) / 1000));
+      cd.d.textContent = two(Math.floor(s / 86400));
+      cd.h.textContent = two(Math.floor(s % 86400 / 3600));
+      cd.m.textContent = two(Math.floor(s % 3600 / 60));
+      cd.s.textContent = two(s % 60);
+    }
+    updateDots(false);
+  }
+
+  updateDots(true);
+  tick();
+  setInterval(tick, 1000);
+})();
+</script>
+</body>
+</html>
