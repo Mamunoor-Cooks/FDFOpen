@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<base target="_top">
 <title>চতুর্দশ জাতীয় বিতর্ক উৎসব ২০২৬</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -167,7 +168,7 @@ footer strong{font-family:var(--serif)}
 
 <main>
   <div class="frame">
-    <img src="https://i.postimg.cc/pXBdwZD2/fdf.jpg" alt="চতুর্দশ জাতীয় বিতর্ক উৎসবের ব্যানার">
+    <img src="https://i.postimg.cc/fLXgtfXV/tab-poster-for-open-ap.jpg" alt="চতুর্দশ জাতীয় বিতর্ক উৎসবের ব্যানার">
   </div>
 
   <section class="tracker" aria-labelledby="tr-title">
@@ -184,12 +185,12 @@ footer strong{font-family:var(--serif)}
 
   <section class="info" aria-label="উৎসবের তথ্য">
     <div class="when">
-      <span class="big">২৯–৩০</span>
+      <span class="big">৩০</span>
       <span class="month">অক্টোবর ২০২৬</span>
     </div>
     <div class="what">
       <h3>কবি জসীম উদদীন হল, ফরিদপুর</h3>
-      <p>দুই দিনের এই আয়োজনে থাকছে:</p>
+      <p>একদিনের এই আয়োজনে থাকছে:</p>
       <ul>
         <li>স্কুল, কলেজ ও বিশ্ববিদ্যালয় পর্যায়ে বিতর্ক প্রতিযোগিতা</li>
         <li>প্রদর্শনী বিতর্ক</li>
@@ -219,11 +220,11 @@ footer strong{font-family:var(--serif)}
 <script>
 (function () {
   // ===== সময় বদলাতে শুধু এই দুই লাইন বদলান (ঢাকার সময়, +06:00) =====
-  var STARTS = new Date("2026-10-29T09:00:00+06:00");   // উৎসব শুরু
-  var ENDS   = new Date("2026-10-30T21:00:00+06:00");   // উৎসব শেষ
+ var STARTS = new Date(Date.now() + 2 * 60 * 1000);    // এখন থেকে ২ মিনিট পরে শুরু
+ var ENDS   = new Date(Date.now() + 5 * 60 * 1000);    // এখন থেকে ৫ মিনিট পরে শেষ
   // ==================================================================
 
-  var FIRST_DAY = 29, TOTAL = 2;   // দিনপঞ্জির ঘর: ২৯ ও ৩০ অক্টোবর
+  var FIRST_DAY = 30, TOTAL = 1;   // দিনপঞ্জির ঘর: ৩০ অক্টোবর
   var digits = "০১২৩৪৫৬৭৮৯";
   function bn(n) { return String(n).replace(/\d/g, function (d) { return digits[d]; }); }
   function two(n) { return bn(n < 10 ? "0" + n : n); }
